@@ -1,5 +1,5 @@
 // CONFIGURATION - Easily adjust these values
-const SQUARE_SIZE = 30; // Change this to adjust square size
+const SQUARE_SIZE = 100; // Change this to adjust square size
 
 // Physics constants
 const GRAVITY = 0.5;

@@ -7,7 +7,7 @@
 :root {
     --bg-dark: #0a0a0f;
     --bg-card: #16161d;
-    --accent: #6366f1;
+    --accent: #63d7f1;
     --accent-hover: #818cf8;
     --text-primary: #e5e7eb;
     --text-secondary: #9ca3af;
@@ -30,7 +30,7 @@ body::before {
     top: -50%;
     left: -50%;
     width: 200%;
-    height: 200%;
+    height: 00%;
     background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
     animation: rotateGradient 20s linear infinite;
     pointer-events: none;
@@ -45,9 +45,9 @@ body::before {
 .container {
     position: relative;
     z-index: 1;
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 4rem 3rem;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -56,14 +56,14 @@ body::before {
 /* Header Styles */
 header {
     text-align: center;
-    margin-bottom: 4rem;
-    padding-top: 2rem;
+    margin-bottom: 5rem;
+    padding-top: 3rem;
 }
 
 .title {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-size: clamp(0.4rem, 10vw, 7rem);
     font-weight: 700;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -72,7 +72,7 @@ header {
 }
 
 .subtitle {
-    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
     color: var(--text-secondary);
     font-weight: 300;
     letter-spacing: 0.05em;
@@ -82,8 +82,8 @@ header {
 /* Projects Grid */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 3rem;
     flex: 1;
     align-content: start;
 }
@@ -93,16 +93,17 @@ header {
     position: relative;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    border-radius: 16px;
-    padding: 2.5rem;
+    border-radius: 20px;
+    padding: 4rem;
     text-decoration: none;
     color: inherit;
     transition: transform 0.3s ease, border-color 0.3s ease;
     overflow: hidden;
     cursor: pointer;
-    min-height: 200px;
+    aspect-ratio: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .project-card::before {
@@ -143,23 +144,30 @@ header {
 .card-content {
     position: relative;
     z-index: 2;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 8rem;
 }
 
 .project-number {
-    font-size: 0.875rem;
+    font-size: 2rem;
     color: var(--accent);
     font-weight: 600;
     letter-spacing: 0.1em;
     display: block;
-    margin-bottom: 1rem;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
 }
 
 .project-title {
-    font-size: 1.75rem;
+    font-size: 4rem;
     font-weight: 600;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
     letter-spacing: -0.01em;
     transition: color 0.3s ease;
+    line-height: 1.1;
 }
 
 .project-card:hover .project-title {
@@ -167,21 +175,15 @@ header {
 }
 
 .project-description {
-    font-size: 1rem;
+    font-size: 1.75rem;
     color: var(--text-secondary);
     font-weight: 300;
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 3rem 0 1rem;
-    color: var(--text-secondary);
-    font-size: 0.9rem;
-    font-weight: 300;
-    border-top: 1px solid var(--border-color);
-    margin-top: 4rem;
+    display: none;
 }
 
 /* Responsive Design */

@@ -7,12 +7,13 @@ let largeRect = false;
 let clickedX, clickedY;
 
 function setup() {
-  const canvas = createCanvas(800, 600);
+  const canvas = createCanvas(windowWidth, windowHeight);
   canvas.parent('canvas-container');
   rectMode(CENTER);
 
-  spacing = height * 0.12;
-  rectSize = height * 0.1;
+  let minDimension = min(width, height);
+  spacing = minDimension * 0.12;
+  rectSize = minDimension * 0.1;
   cols = width / spacing;
   rows = height / spacing;
 }
@@ -33,7 +34,7 @@ function draw() {
       if (clickedOn) {
         let direction = createVector(x - clickedX, y - clickedY);
         if (direction.mag() > 0) {
-          direction.setMag(40);
+          direction.setMag(500);
         }
         x += direction.x;
         y += direction.y;
@@ -62,9 +63,10 @@ function mousePressed() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth * 0.8, windowHeight * 0.8);
-  spacing = height * 0.12;
-  rectSize = height * 0.1;
+  resizeCanvas(windowWidth, windowHeight);
+  let minDimension = min(width, height);
+  spacing = minDimension * 0.12;
+  rectSize = minDimension * 0.1;
   cols = width / spacing;
   rows = height / spacing;
 }
