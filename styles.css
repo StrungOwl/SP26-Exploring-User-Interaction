@@ -179,6 +179,30 @@ header {
     color: var(--text-secondary);
     font-weight: 300;
     line-height: 1.4;
+    margin-bottom: 1.5rem;
+}
+
+.project-preview {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.project-preview img {
+    width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.7;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project-card:hover .project-preview img {
+    opacity: 1;
+    transform: scale(1.02);
 }
 
 /* Footer */
