@@ -24,12 +24,23 @@
         </nav>
 
         <main class="projects-grid">
+            <a href="BASIC INTERACTION/Keyboard Controls/index.html" class="project-card" data-category="interaction">
+                <div class="card-content">
+                    <h2 class="project-title">Keyboard Controls</h2>
+                    <p class="project-description">Learn keyboard input with Arrow Keys, WASD, and Spacebar. Control an animated mushroom character with walking legs.</p>
+                    <div class="project-preview">
+                        <img src="xScreenshots/keyboard.png" alt="Keyboard Controls Preview">
+                    </div>
+                </div>
+                <div class="card-hover"></div>
+            </a>
+
             <a href="BASIC INTERACTION/UI Controls/index.html" class="project-card" data-category="interaction">
                 <div class="card-content">
                     <h2 class="project-title">UI Controls</h2>
                     <p class="project-description">Learn to create sliders, buttons, text inputs, dropdowns, checkboxes, and color pickers with p5.js DOM functions.</p>
                     <div class="project-preview">
-                        <img src="xScreenshots/ui-controls.png" alt="UI Controls Preview">
+                        <img src="xScreenshots/UIcontrols.png" alt="UI Controls Preview">
                     </div>
                 </div>
                 <div class="card-hover"></div>
@@ -46,7 +57,7 @@
                 <div class="card-hover"></div>
             </a>
 
-            <a href="ANIMATIONS/Parallax Scrolling/index.html" class="project-card" data-category="interaction">
+            <a href="ANIMATIONS/Parallax Scrolling/index.html" class="project-card" data-category="animation interaction">
                 <div class="card-content">
                     <h2 class="project-title">Parallax Scrolling</h2>
                     <p class="project-description">Multi-layered depth experience. Scroll to see elements move at different speeds creating immersive 3D space.</p>
@@ -165,7 +176,7 @@
                 const filter = tab.dataset.filter;
 
                 cards.forEach((card, index) => {
-                    if (filter === 'all' || card.dataset.category === filter) {
+                    if (filter === 'all' || card.dataset.category.includes(filter)) {
                         card.classList.remove('hidden');
                         card.style.animationDelay = `${index * 0.1}s`;
                     } else {
