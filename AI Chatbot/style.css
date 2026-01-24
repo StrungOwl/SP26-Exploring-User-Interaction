@@ -4,6 +4,47 @@
     box-sizing: border-box;
 }
 
+/* Demo Navigation */
+.demo-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1001;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.nav-link {
+    color: rgba(0, 255, 255, 0.7);
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: rgba(0, 255, 255, 0.1);
+    color: #00ffff;
+}
+
+.github-link {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: #00ffff;
+}
+
+.github-link:hover {
+    background: rgba(0, 255, 255, 0.2);
+    color: #00ffff;
+}
+
 body {
     font-family: 'Courier New', 'Consolas', monospace;
     background: #0a0e27;

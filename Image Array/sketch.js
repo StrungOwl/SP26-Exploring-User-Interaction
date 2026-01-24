@@ -20,7 +20,9 @@ function preload() {
 }
 
 function setup() {
-    let canvas = createCanvas(600, 600); // Create square canvas
+    // Calculate canvas size to fit within container, accounting for nav bar
+    let canvasSize = min(450, windowWidth * 0.8, windowHeight - 200);
+    let canvas = createCanvas(canvasSize, canvasSize); // Create square canvas
     canvas.parent('canvas-container'); // Attach to container
     imageMode(CENTER); // Set image mode to center
 
@@ -63,7 +65,20 @@ function draw() {
 
 function mousePressed() {
     // If mouse is close to the center of the image
-    if (d < imgS / 3) { 
+    if (d < imgS / 3) {
         playAnim = !playAnim; // Toggle animation
     }
+}
+
+function windowResized() {
+    // Recalculate canvas size on resize
+    let canvasSize = min(450, windowWidth * 0.8, windowHeight - 200);
+    resizeCanvas(canvasSize, canvasSize);
+
+    imgS = height * 0.6; // Update image size
+    imgX = width / 2; // Update image X position
+    imgY = height / 2; // Update image Y position
+
+    // Resize all images in the array
+    imgArray.forEach(img => img.resize(0, imgS));
 }

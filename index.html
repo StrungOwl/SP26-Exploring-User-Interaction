@@ -16,8 +16,37 @@
             <p class="subtitle">Spring 2026 • Interactive Web Projects</p>
         </header>
 
+        <nav class="category-tabs">
+            <button class="tab-btn active" data-filter="all">All</button>
+            <button class="tab-btn" data-filter="animation">Animation</button>
+            <button class="tab-btn" data-filter="interaction">Basic Interaction</button>
+            <button class="tab-btn" data-filter="request">By Request</button>
+        </nav>
+
         <main class="projects-grid">
-            <a href="Breaking Grid/index.html" class="project-card">
+            <a href="ANIMATIONS/Parallax Scrolling/index.html" class="project-card" data-category="animation">
+                <div class="card-content">
+                    <h2 class="project-title">Parallax Scrolling</h2>
+                    <p class="project-description">Multi-layered depth experience. Scroll to see elements move at different speeds creating immersive 3D space.</p>
+                    <div class="project-preview">
+                        <img src="xScreenshots/parallax.png" alt="Parallax Scrolling Preview">
+                    </div>
+                </div>
+                <div class="card-hover"></div>
+            </a>
+
+            <a href="ANIMATIONS/Staggered Timing/index.html" class="project-card" data-category="animation">
+                <div class="card-content">
+                    <h2 class="project-title">Staggered Timing</h2>
+                    <p class="project-description">Color gradient circle grid with staggered reveal animation. Move your mouse to control visibility in a wave pattern.</p>
+                    <div class="project-preview">
+                        <img src="xScreenshots/staggered.png" alt="Staggered Timing Preview">
+                    </div>
+                </div>
+                <div class="card-hover"></div>
+            </a>
+
+            <a href="Breaking Grid/index.html" class="project-card" data-category="request">
                 <div class="card-content">
                     <h2 class="project-title">Breaking Grid</h2>
                     <p class="project-description">Interactive grid exploration. Click on a square to see the grid break apart.</p>
@@ -28,7 +57,7 @@
                 <div class="card-hover"></div>
             </a>
 
-            <a href="Deconstructed Text/index.html" class="project-card">
+            <a href="Deconstructed Text/index.html" class="project-card" data-category="request">
                 <div class="card-content">
                     <h2 class="project-title">Deconstructed Text</h2>
                     <p class="project-description">Typography deconstruction experiment. Click to see it explode into individual squares.</p>
@@ -39,7 +68,7 @@
                 <div class="card-hover"></div>
             </a>
 
-            <a href="Turning Knob/index.html" class="project-card">
+            <a href="Turning Knob/index.html" class="project-card" data-category="request">
                 <div class="card-content">
                     <h2 class="project-title">Turning Knob</h2>
                     <p class="project-description">Retro TV channel knob. Click and drag to change channels with authentic sound.</p>
@@ -50,7 +79,7 @@
                 <div class="card-hover"></div>
             </a>
 
-            <a href="Image Array/index.html" class="project-card">
+            <a href="Image Array/index.html" class="project-card" data-category="request">
                 <div class="card-content">
                     <h2 class="project-title">Image Array</h2>
                     <p class="project-description">Blooming flower animation. Click the center to watch it bloom through sequential images.</p>
@@ -61,23 +90,12 @@
                 <div class="card-hover"></div>
             </a>
 
-            <a href="AI Chatbot/index.html" class="project-card">
+            <a href="AI Chatbot/index.html" class="project-card" data-category="request">
                 <div class="card-content">
                     <h2 class="project-title">AI Chatbot</h2>
                     <p class="project-description">NOVA-7 sci-fi companion AI. Chat with a deep space assistant in demo mode or connect your API key.</p>
                     <div class="project-preview">
                         <img src="xScreenshots/chatbotImg.png" alt="AI Chatbot Preview">
-                    </div>
-                </div>
-                <div class="card-hover"></div>
-            </a>
-
-            <a href="ANIMATIONS/Parallax Scrolling/index.html" class="project-card">
-                <div class="card-content">
-                    <h2 class="project-title">Parallax Scrolling</h2>
-                    <p class="project-description">Multi-layered depth experience. Scroll to see elements move at different speeds creating immersive 3D space.</p>
-                    <div class="project-preview">
-                        <img src="xScreenshots/parallax.png" alt="Parallax Scrolling Preview">
                     </div>
                 </div>
                 <div class="card-hover"></div>
@@ -90,5 +108,28 @@
             <p>Created by Sydney • UX Interaction Demos</p>
         </footer>
     </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-btn');
+        const cards = document.querySelectorAll('.project-card');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                const filter = tab.dataset.filter;
+
+                cards.forEach((card, index) => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden');
+                        card.style.animationDelay = `${index * 0.1}s`;
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

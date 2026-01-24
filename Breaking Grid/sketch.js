@@ -20,8 +20,9 @@ function setup() {
 
 function draw() {
   background(220, 20);
-  fill(100);
-  noStroke();
+  fill(100, 150); // Lower opacity (150 out of 255)
+  stroke(0); // Black stroke
+  strokeWeight(max(1, rectSize * 0.02)); // Scalable stroke width
 
   largeRect = false;
 
@@ -34,7 +35,7 @@ function draw() {
       if (clickedOn) {
         let direction = createVector(x - clickedX, y - clickedY);
         if (direction.mag() > 0) {
-          direction.setMag(500);
+          direction.setMag(150); // Reduced scatter distance from 500 to 150
         }
         x += direction.x;
         y += direction.y;

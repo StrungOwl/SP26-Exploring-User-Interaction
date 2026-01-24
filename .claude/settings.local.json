@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"c:\\\\Users\\\\sydne\\\\OneDrive\\\\Documents\\\\GitHub\\\\SP25-Exploring-User-Interaction\\\\ANIMATIONS\\\\Depth\"\" && echo \"---\" && ls -la \"c:UserssydneOneDriveDocumentsGitHubSP25-Exploring-User-InteractionANIMATIONSEasing\"\")"
+    ]
+  }
+}

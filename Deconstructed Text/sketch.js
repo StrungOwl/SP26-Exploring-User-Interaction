@@ -1,5 +1,5 @@
 // CONFIGURATION - Easily adjust these values
-const SQUARE_SIZE = 100; // Change this to adjust square size
+let SQUARE_SIZE; // Will be calculated based on screen width
 
 // Physics constants
 const GRAVITY = 0.5;
@@ -9,6 +9,15 @@ const FRICTION = 0.98;
 let squares = [];
 let gridSquares = [];
 let isExploded = false;
+
+// Calculate square size based on screen width
+function calculateSquareSize() {
+    // The word "HELLO" is 17 grid units wide (H:3 + space:1 + E:3 + space:1 + L:3 + space:1 + L:3 + space:1 + O:3 = 19, minus last space = 17)
+    // Actually: H(3) + 1 + E(3) + 1 + L(3) + 1 + L(3) + 1 + O(3) = 19 total width including spaces
+    const totalGridWidth = 19;
+    // Use 80% of screen width for the text, divided by grid units
+    return Math.min(100, (width * 0.8) / totalGridWidth);
+}
 
 // Letter patterns (1 = filled, 0 = empty)
 const LETTERS = {
@@ -52,6 +61,9 @@ const LETTERS = {
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+
+    // Calculate responsive square size
+    SQUARE_SIZE = calculateSquareSize();
 
     // Generate the text grid
     generateTextGrid();
@@ -216,6 +228,8 @@ class PhysicsSquare {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
+    // Recalculate square size on resize
+    SQUARE_SIZE = calculateSquareSize();
     if (!isExploded) {
         generateTextGrid();
     }

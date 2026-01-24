@@ -9,7 +9,10 @@ let channel = 1;
 let maxChannels = 13;
 
 function setup() {
-    let cnv = createCanvas(min(windowWidth * 0.8, 600), min(windowHeight * 0.8, 600));
+    // Account for nav bar height (60px) and padding
+    let availableHeight = windowHeight - 80;
+    let canvasSize = min(windowWidth * 0.8, availableHeight * 0.8, 500);
+    let cnv = createCanvas(canvasSize, canvasSize);
     cnv.parent('tv-container');
     cnv.mousePressed(playOscillator);
     osc = new p5.Oscillator('sine');
@@ -159,7 +162,9 @@ function knob() {
 }
 
 function windowResized() {
-    let newSize = min(windowWidth * 0.8, 600);
+    // Account for nav bar height (60px) and padding
+    let availableHeight = windowHeight - 80;
+    let newSize = min(windowWidth * 0.8, availableHeight * 0.8, 500);
     resizeCanvas(newSize, newSize);
     knobSize = min(width, height) * 0.6;
     knobTickSize = knobSize * 0.2;

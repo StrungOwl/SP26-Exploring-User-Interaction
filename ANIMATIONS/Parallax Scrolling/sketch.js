@@ -98,20 +98,20 @@ function updateParallax() {
     }
 
     if (textLayer2) {
-        // Layer 2 should appear around 1 viewport scroll
-        const offset2 = viewportHeight - (scrolled * 0.7);
+        // Layer 2 should appear around 1.5 viewport scroll - starts off screen below
+        const offset2 = (viewportHeight * 1.5) - (scrolled * 0.7);
         textLayer2.style.transform = `translate3d(0, ${offset2}px, 0)`;
     }
 
     if (textLayer3) {
-        // Layer 3 should appear around 2 viewports scroll
-        const offset3 = (viewportHeight * 2) - (scrolled * 0.5);
+        // Layer 3 should appear around 3 viewports scroll - starts off screen below
+        const offset3 = (viewportHeight * 3) - (scrolled * 0.5);
         textLayer3.style.transform = `translate3d(0, ${offset3}px, 0)`;
     }
 
     if (textLayer4) {
-        // Layer 4 should appear around 3 viewports scroll
-        const offset4 = (viewportHeight * 3) - (scrolled * 0.3);
+        // Layer 4 should appear around 4.5 viewports scroll - starts off screen below
+        const offset4 = (viewportHeight * 4.5) - (scrolled * 0.3);
         textLayer4.style.transform = `translate3d(0, ${offset4}px, 0)`;
     }
 
@@ -125,3 +125,6 @@ window.addEventListener('scroll', () => {
         ticking = true;
     }
 });
+
+// Initialize positions on page load
+updateParallax();
