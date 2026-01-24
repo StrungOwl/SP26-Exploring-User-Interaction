@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Controls - p5.js DOM Elements</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- p5.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="demo-nav">
+        <a href="../../index.html" class="nav-link">Back to Projects</a>
+        <a href="https://github.com/StrungOwl/SP25-Exploring-User-Interaction/tree/main/BASIC%20INTERACTION/UI%20Controls" target="_blank" class="nav-link github-link">View Source on GitHub</a>
+    </nav>
+
+    <!-- Main Layout: Control Panel + Canvas -->
+    <div class="main-container">
+
+        <!-- Control Panel (Left Side) -->
+        <div id="controls-panel">
+            <h2 class="panel-title">Control Panel</h2>
+
+            <!-- Sliders Section -->
+            <div class="control-section">
+                <h3>Sliders</h3>
+                <div id="size-slider"></div>
+                <div id="speed-slider"></div>
+            </div>
+
+            <!-- Checkbox Section -->
+            <div class="control-section">
+                <h3>Checkbox</h3>
+                <div id="fill-checkbox"></div>
+            </div>
+
+            <!-- Text Input Section -->
+            <div class="control-section">
+                <h3>Text Input</h3>
+                <div id="text-input"></div>
+            </div>
+
+            <!-- Button Section -->
+            <div class="control-section">
+                <h3>Button</h3>
+                <div id="random-button"></div>
+            </div>
+
+            <!-- Dropdown Section -->
+            <div class="control-section">
+                <h3>Dropdown</h3>
+                <div id="shape-select"></div>
+            </div>
+
+            <!-- Color Picker Section -->
+            <div class="control-section">
+                <h3>Color Picker</h3>
+                <div id="color-picker"></div>
+            </div>
+        </div>
+
+        <!-- Canvas Area (Right Side) -->
+        <div class="canvas-wrapper">
+            <div id="canvas-container"></div>
+        </div>
+    </div>
+
+    <!-- Instructions -->
+    <div class="instructions">
+        Adjust the controls to change the shape on the canvas
+    </div>
+
+    <!-- p5.js Sketch -->
+    <script src="sketch.js"></script>
+</body>
+</html>

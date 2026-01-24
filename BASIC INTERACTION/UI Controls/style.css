@@ -1,0 +1,325 @@
+/* ============================================
+   UI Controls Demo - Stylesheet
+   A beginner-friendly example of styling p5.js controls
+   ============================================ */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS Variables - Easy to customize! */
+:root {
+    --bg-dark: #0a0a0f;
+    --bg-panel: #12121a;
+    --accent: #63d7f1;
+    --text-primary: #e5e7eb;
+    --text-secondary: #9ca3af;
+    --border-color: #2a2a35;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ============================================
+   Navigation (same pattern as other demos)
+   ============================================ */
+.demo-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    background: rgba(10, 10, 10, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.github-link {
+    background: rgba(99, 215, 241, 0.1);
+    border: 1px solid rgba(99, 215, 241, 0.3);
+    color: var(--accent);
+}
+
+.github-link:hover {
+    background: rgba(99, 215, 241, 0.2);
+}
+
+/* ============================================
+   Main Layout - Two Columns
+   ============================================ */
+.main-container {
+    display: flex;
+    padding-top: 60px;
+    min-height: 100vh;
+}
+
+/* ============================================
+   Control Panel (Left Side)
+   ============================================ */
+#controls-panel {
+    width: 300px;
+    min-width: 300px;
+    background: var(--bg-panel);
+    border-right: 1px solid var(--border-color);
+    padding: 1.5rem;
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
+}
+
+.panel-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Each control section */
+.control-section {
+    margin-bottom: 1.5rem;
+}
+
+.control-section h3 {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+}
+
+/* ============================================
+   Control Labels
+   ============================================ */
+.control-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+/* ============================================
+   Sliders
+   ============================================ */
+.control-slider {
+    width: 100%;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--border-color);
+    border-radius: 3px;
+    outline: none;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.control-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.control-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Firefox slider thumb */
+.control-slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+}
+
+/* ============================================
+   Checkboxes
+   ============================================ */
+.control-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.control-checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+
+/* ============================================
+   Text Input
+   ============================================ */
+.control-input {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+
+.control-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.control-button {
+    padding: 0.6rem 1rem;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.control-button:hover {
+    border-color: var(--accent);
+    background: rgba(99, 215, 241, 0.1);
+}
+
+/* ============================================
+   Dropdown / Select
+   ============================================ */
+.control-select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    background: var(--bg-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.control-select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+/* ============================================
+   Color Picker
+   ============================================ */
+.control-color {
+    width: 100%;
+    height: 36px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    background: transparent;
+    padding: 2px;
+}
+
+.control-color::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+.control-color::-webkit-color-swatch {
+    border: none;
+    border-radius: 4px;
+}
+
+/* ============================================
+   Canvas Area (Right Side)
+   ============================================ */
+.canvas-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: var(--bg-dark);
+}
+
+#canvas-container {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    background: #0a0a0f;
+}
+
+/* ============================================
+   Instructions (Bottom)
+   ============================================ */
+.instructions {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    z-index: 1001;
+    text-align: center;
+}
+
+/* ============================================
+   Responsive - Stack on Mobile
+   ============================================ */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+
+    #controls-panel {
+        width: 100%;
+        min-width: 100%;
+        max-height: none;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .canvas-wrapper {
+        padding: 1rem;
+    }
+}
