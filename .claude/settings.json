@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//tmp/Data-Demo/API/**)",
+      "Read(//tmp/Data-Demo/CSV/**)",
+      "Read(//tmp/Data-Demo/JSON/**)",
+      "Bash(rm -rf \"DATA VIS/csv\")",
+      "Bash(mkdir -p \"DATA VIS/CSV\" \"DATA VIS/JSON\" \"DATA VIS/Weather API\" \"DATA VIS/ChatGPT API\")"
+    ]
+  }
+}
