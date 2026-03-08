@@ -7,15 +7,128 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/p5@2.2.0/lib/p5.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        .demo-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 15, 0.7);
+        }
+
+        .nav-link {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 400;
+            font-family: 'Space Grotesk', sans-serif;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 80px 20px 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .version-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .version-card {
+            display: block;
+            text-decoration: none;
+            color: #e0e0e0;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 40px 50px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .version-card:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-4px);
+            color: #fff;
+        }
+
+        .version-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .version-card p {
+            color: #888;
+            font-size: 0.95rem;
+        }
+    </style>
 </head>
 <body>
     <nav class="demo-nav">
         <a href="../../index.html" class="nav-link">Back to Projects</a>
         <a href="https://github.com/StrungOwl/SP25-Exploring-User-Interaction/tree/main/DATA%20VIS/datasets%20json%20%26%20csv" target="_blank" class="nav-link">View Source on GitHub</a>
     </nav>
-    <main></main>
-    <script src="sketch2.js"></script>
+    <div class="content">
+        <h1>Datasets: JSON & CSV</h1>
+        <p class="subtitle">World Happiness 2024 — same data, two formats</p>
+        <div class="version-links">
+            <a href="json version/index.html" class="version-card">
+                <h2>JSON Version</h2>
+                <p>Data loaded with loadJSON()</p>
+            </a>
+            <a href="csv version/index.html" class="version-card">
+                <h2>CSV Version</h2>
+                <p>Data loaded with loadTable()</p>
+            </a>
+        </div>
+    </div>
 </body>
 </html>
